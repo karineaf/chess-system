@@ -12,11 +12,6 @@ public class Rook extends ChessPiece {
     }
 
     @Override
-    public String toString() {
-        return "R";
-    }
-
-    @Override
     public boolean[][] possibleMoves() {
         boolean[][] matriz = new boolean[getBoard().getRows()][getBoard().getColumns()];
         Position auxPosition = new Position(0, 0);
@@ -27,9 +22,8 @@ public class Rook extends ChessPiece {
             matriz[auxPosition.getRow()][auxPosition.getColumn()] = true;
             auxPosition.setRow(auxPosition.getRow() - 1);
         }
-        if (getBoard().positionExists(auxPosition) && isThereOpponentPiece(auxPosition)) {
+        if (getBoard().positionExists(auxPosition) && isThereOpponentPiece(auxPosition))
             matriz[auxPosition.getRow()][auxPosition.getColumn()] = true;
-        }
 
         // left
         auxPosition.setValues(position.getRow(), position.getColumn() - 1);
@@ -37,9 +31,8 @@ public class Rook extends ChessPiece {
             matriz[auxPosition.getRow()][auxPosition.getColumn()] = true;
             auxPosition.setColumn(auxPosition.getColumn() - 1);
         }
-        if (getBoard().positionExists(auxPosition) && isThereOpponentPiece(auxPosition)) {
+        if (getBoard().positionExists(auxPosition) && isThereOpponentPiece(auxPosition))
             matriz[auxPosition.getRow()][auxPosition.getColumn()] = true;
-        }
 
         // right
         auxPosition.setValues(position.getRow(), position.getColumn() + 1);
@@ -47,9 +40,8 @@ public class Rook extends ChessPiece {
             matriz[auxPosition.getRow()][auxPosition.getColumn()] = true;
             auxPosition.setColumn(auxPosition.getColumn() + 1);
         }
-        if (getBoard().positionExists(auxPosition) && isThereOpponentPiece(auxPosition)) {
+        if (getBoard().positionExists(auxPosition) && isThereOpponentPiece(auxPosition))
             matriz[auxPosition.getRow()][auxPosition.getColumn()] = true;
-        }
 
         // below
         auxPosition.setValues(position.getRow() + 1, position.getColumn());
@@ -57,10 +49,15 @@ public class Rook extends ChessPiece {
             matriz[auxPosition.getRow()][auxPosition.getColumn()] = true;
             auxPosition.setRow(auxPosition.getRow() + 1);
         }
-        if (getBoard().positionExists(auxPosition) && isThereOpponentPiece(auxPosition)) {
+        if (getBoard().positionExists(auxPosition) && isThereOpponentPiece(auxPosition))
             matriz[auxPosition.getRow()][auxPosition.getColumn()] = true;
-        }
 
         return matriz;
+    }
+
+
+    @Override
+    public String toString() {
+        return "R";
     }
 }
