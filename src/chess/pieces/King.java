@@ -5,17 +5,10 @@ import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
-import javax.security.auth.login.CredentialNotFoundException;
-
 public class King extends ChessPiece {
 
     public King(Board board, Color color) {
         super(board, color);
-    }
-
-    @Override
-    public String toString() {
-        return "K";
     }
 
     private boolean canMove(Position position){
@@ -70,5 +63,10 @@ public class King extends ChessPiece {
             matriz[auxPosition.getRow()][auxPosition.getColumn()] = true;
 
         return matriz;
+    }
+
+    @Override
+    public String toString() {
+        return "K";
     }
 }
